@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: frontend-project
+    ports:
+    - 5000:5000
+    container_name: frontend
+    
+  
+  backend:
+    image: backend-project
+    ports:
+      - 8080:8080
+    environment:
+      REDIS_HOST: redis
+    container_name: backend
+  
+  redis:
+    image: redis:alpine
+    ports:
+      - 6379:6379
+    container_name: redis
+
